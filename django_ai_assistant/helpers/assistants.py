@@ -529,8 +529,7 @@ class AIAssistant(abc.ABC):  # noqa: F821
         workflow.add_node("history", history)
         workflow.add_node("retriever", retriever)
         workflow.add_node("agent", agent)
-        tools = sorted(tools, key=lambda t: t.name)
-        workflow.add_node("tools", ToolNode(list(tools)))
+        workflow.add_node("tools", ToolNode(tools=tools))
         workflow.add_node("respond", record_response)
 
         workflow.set_entry_point("setup")
