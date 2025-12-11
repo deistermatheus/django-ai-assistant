@@ -1,24 +1,27 @@
 interactions:
 - request:
-    body: '{"messages": [{"content": "You are a helpful assistant that provides information
-      about people.", "role": "system"}, {"content": "Tell me about John who is 30
-      years old and not a student.", "role": "user"}], "model": "gpt-4o-2024-08-06",
-      "n": 1, "stream": false, "temperature": 1.0}'
+    body: '{"messages":[{"content":"You are a helpful assistant that provides information
+      about people.","role":"system"},{"content":"Tell me about John who is 30 years
+      old and not a student.","role":"user"}],"model":"gpt-4o-2024-08-06","stream":false,"temperature":1.0}'
     headers:
-      accept:
+      Accept:
       - application/json
-      accept-encoding:
-      - gzip, deflate
+      Accept-Encoding:
+      - gzip, deflate, zstd
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '259'
+      Content-Type:
+      - application/json
+      Host:
+      - api.openai.com
+      X-Stainless-Raw-Response:
+      - 'true'
       authorization:
       - DUMMY
-      connection:
-      - keep-alive
-      content-length:
-      - '281'
-      content-type:
-      - application/json
-      host:
-      - api.openai.com
+      cookie:
+      - DUMMY
       user-agent:
       - OpenAI/Python
       x-stainless-retry-count:
@@ -26,20 +29,20 @@ interactions:
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
-    content: "{\n  \"id\": \"chatcmpl-ADXKhygvvNpK7CL2fFDyCw5Cv42DH\",\n  \"object\":
-      \"chat.completion\",\n  \"created\": 1727789759,\n  \"model\": \"gpt-4o-2024-08-06\",\n
-      \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-      \"assistant\",\n        \"content\": \"I'm sorry, but I don't have any specific
-      information about a person named John who is 30 years old and not a student,
-      as your query is very general. John's name is quite common, and without more
-      specific details, it's challenging to provide any meaningful information. However,
-      I can try to answer questions or provide information on topics that might be
-      relevant to someone around that age if that would be helpful to you. Let me
-      know if there's anything else specific you'd like to know!\",\n        \"refusal\":
-      null\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n
-      \   }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 37,\n    \"completion_tokens\":
-      96,\n    \"total_tokens\": 133,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-      0\n    }\n  },\n  \"system_fingerprint\": \"fp_e5e4913e83\"\n}\n"
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA4xUTU8bMRC951eMfMklQfmCQK5IlULbSyVKpYIix57NTvF6jMcObBH/vfKGJqGl
+        Ui978Jv3Zt74eZ97AIqsWoAytU6mCW546eqLm0/pi71cfru+3t5c+a/64ePphwf6vLxQg8Lg9Q80
+        6TfrxHATHCZiv4NNRJ2wqI7nZ6ez8+l0OuqAhi26QtuENJzxcDKazIaj8+Ho7JVYMxkUtYDvPQCA
+        5+5bRvQWn9QCOpnupEERvUG12BcBqMiunCgtQpK0T2pwAA37hL6betlvQDjGdgDrnGAJln0/Qa23
+        CAGjsNcOyFccG11sgV5zTiABDVVkgLylLdmsnUD2DkUg1dj2I0LIa0cGKtrkiALaW3gki66FiIY3
+        nn6iBfKlHhq0pIEjcKoxvlJdC9oYFKG1QxDO0aCcwLKCW3XFtb9VELHCKJAYhBtkj1DphrMUKQ2m
+        1lGbhLG00SCJi8/gUAtCiLwli9BwROg28pQG3ZTLvnNgGZoW1iipqNfoQte55Vy8dX0j+c1x65Yz
+        3Ht+3C/OtQNYdm6bBr0FS2KySKFp3wL5h0yRUOCRUl320ICliCa59uT4viJWWXSJi8/OHQHae07d
+        vXRJuXtFXvbZcLwJkdfyB1VV5EnqVUQt7EsOJHFQHfrSA7jrMpjfxEqFyE1Iq8T32LWbzndy6hD6
+        AzifvYKJk3aH8/F4PHhHbmUxaXJyFGJltKnRHqiHxOtsiY+A3pHpv6d5T3tnnPzmf+QPgDEYEtpV
+        iGjJvHV8KItY/gn/KtsvuRtYCcYtGVwlwlguwmKls9s9VyWtJGxWFfkNxhBp92arsJrO7WQ8Weuq
+        Ur2X3i8AAAD//wMA3BMd27wEAAA=
     headers:
       Connection:
       - keep-alive
@@ -49,64 +52,75 @@ interactions:
       - application/json
       Date: Sun, 09 Jun 2024 23:39:08 GMT
       Server: DUMMY
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Transfer-Encoding:
       - chunked
       X-Content-Type-Options:
       - nosniff
       access-control-expose-headers:
       - X-Request-ID
-    http_version: HTTP/1.1
-    status_code: 200
+      cf-cache-status:
+      - DYNAMIC
+      openai-project:
+      - proj_7m8RjEIHmauJaSe2iK7Z48fc
+      x-envoy-upstream-service-time:
+      - '1558'
+      x-openai-proxy-wasm:
+      - v0.1
+    status:
+      code: 200
+      message: OK
 - request:
-    body: '{"messages": [{"content": "You are a helpful assistant that provides information
-      about people.\nUse the chat history to produce a JSON output.", "role": "system"},
-      {"content": "Tell me about John who is 30 years old and not a student.", "role":
-      "user"}, {"content": "I''m sorry, but I don''t have any specific information
-      about a person named John who is 30 years old and not a student, as your query
-      is very general. John''s name is quite common, and without more specific details,
-      it''s challenging to provide any meaningful information. However, I can try
-      to answer questions or provide information on topics that might be relevant
-      to someone around that age if that would be helpful to you. Let me know if there''s
-      anything else specific you''d like to know!", "role": "assistant"}, {"content":
-      "Use the chat history to produce a JSON output.", "role": "user"}], "model":
-      "gpt-4o-2024-08-06", "n": 1, "response_format": {"type": "json_schema", "json_schema":
-      {"schema": {"properties": {"name": {"title": "Name", "type": "string"}, "age":
-      {"title": "Age", "type": "integer"}, "is_student": {"title": "Is Student", "type":
-      "boolean"}}, "required": ["name", "age", "is_student"], "title": "OutputSchema",
-      "type": "object", "additionalProperties": false}, "name": "OutputSchema", "strict":
-      true}}, "stream": false, "temperature": 1.0}'
+    body: '{"messages":[{"content":"You are a helpful assistant that provides information
+      about people.\nUse the chat history to produce a JSON output.","role":"system"},{"content":"Tell
+      me about John who is 30 years old and not a student.","role":"user"},{"content":"I''m
+      sorry, but I don''t have personal information about specific individuals unless
+      they''re public figures and widely recognized in the media or other publicly
+      accessible sources. If \"John\" refers to someone famous or a character in a
+      story, please provide more context, and I''ll do my best to help. If you''re
+      referring to someone you know personally, I recommend discussing any inquiries
+      with them directly.","role":"assistant"},{"content":"Use the chat history to
+      produce a JSON output.","role":"user"}],"model":"gpt-4o-2024-08-06","response_format":{"type":"json_schema","json_schema":{"schema":{"properties":{"name":{"title":"Name","type":"string"},"age":{"title":"Age","type":"integer"},"is_student":{"title":"Is
+      Student","type":"boolean"}},"required":["name","age","is_student"],"title":"OutputSchema","type":"object","additionalProperties":false},"name":"OutputSchema","strict":true}},"stream":false,"temperature":1.0}'
     headers:
-      accept:
+      Accept:
       - application/json
-      accept-encoding:
-      - gzip, deflate
+      Accept-Encoding:
+      - gzip, deflate, zstd
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1183'
+      Content-Type:
+      - application/json
+      Host:
+      - api.openai.com
+      X-Stainless-Helper-Method:
+      - chat.completions.parse
+      X-Stainless-Raw-Response:
+      - 'true'
       authorization:
       - DUMMY
-      connection:
-      - keep-alive
-      content-length:
-      - '1328'
-      content-type:
-      - application/json
-      host:
-      - api.openai.com
+      cookie:
+      - DUMMY
       user-agent:
       - OpenAI/Python
-      x-stainless-helper-method:
-      - beta.chat.completions.parse
       x-stainless-retry-count:
       - '0'
     method: POST
     uri: https://api.openai.com/v1/chat/completions
   response:
-    content: "{\n  \"id\": \"chatcmpl-ADXKjIlmFBaKU78s6GU30fcO49VoO\",\n  \"object\":
-      \"chat.completion\",\n  \"created\": 1727789761,\n  \"model\": \"gpt-4o-2024-08-06\",\n
-      \ \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\":
-      \"assistant\",\n        \"content\": \"{\\\"name\\\":\\\"John\\\",\\\"age\\\":30,\\\"is_student\\\":false}\",\n
-      \       \"refusal\": null\n      },\n      \"logprobs\": null,\n      \"finish_reason\":
-      \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 224,\n    \"completion_tokens\":
-      14,\n    \"total_tokens\": 238,\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\":
-      0\n    }\n  },\n  \"system_fingerprint\": \"fp_143bb8492c\"\n}\n"
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAwAAAP//jFLBjtMwEL3nK6w5JyhNsqXNEThxAHFCK7KKXHuSmDq28TjAUvXfkdNu
+        k4VF4uLDvHnP783MKWEMlISagRh4EKPT2Vs97O/f9DLfH799unv3ufhIhj7c/3rc8h9HSCPDHr6i
+        CE+sV8KOTmNQ1lxg4ZEHjKqb19u7aleWZTEDo5WoI613IatsVuRFleW7LN9eiYNVAglq9iVhjLHT
+        /EaLRuJPqFmePlVGJOI9Qn1rYgy81bECnEhR4CZAuoDCmoBmdn1qwPARG6gbeG8H00DaAO9joczT
+        BhS1FCaJJjRQd1wTntdKHruJeAxiJq1XADfGBh4HMWd4uCLnm2tte+ftgf6gQqeMoqH1yMma6JCC
+        dTCj54Sxh3k607PA4LwdXWiDPeL8XZEXFz1Y9rGgm+oKBhu4XrE22/QFvVZi4ErTar4guBhQLtRl
+        GXySyq6AZJX6bzcvaV+SK9P/j/wCCIEuoGydR6nE88RLm8d4rv9qu015NgyE/rsS2AaFPm5CYscn
+        fbkkoEcKOLadMj1659XlnDrX4m6zx7IqdwdIzslvAAAA//8DACtdxsdXAwAA
     headers:
       Connection:
       - keep-alive
@@ -116,12 +130,23 @@ interactions:
       - application/json
       Date: Sun, 09 Jun 2024 23:39:08 GMT
       Server: DUMMY
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Transfer-Encoding:
       - chunked
       X-Content-Type-Options:
       - nosniff
       access-control-expose-headers:
       - X-Request-ID
-    http_version: HTTP/1.1
-    status_code: 200
+      cf-cache-status:
+      - DYNAMIC
+      openai-project:
+      - proj_7m8RjEIHmauJaSe2iK7Z48fc
+      x-envoy-upstream-service-time:
+      - '538'
+      x-openai-proxy-wasm:
+      - v0.1
+    status:
+      code: 200
+      message: OK
 version: 1

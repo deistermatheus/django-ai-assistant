@@ -105,7 +105,7 @@ def test_AIAssistant_invoke():
                     {
                         "name": "fetch_current_temperature",
                         "args": {"location": "Recife"},
-                        "id": "call_mp680g1ciZRb9eaRoWZUpMWG",
+                        "id": "call_bklNDJrFV7sDE1SW9bresmOF",
                         "type": "tool_call",
                     }
                 ],
@@ -114,7 +114,7 @@ def test_AIAssistant_invoke():
                 content="32 degrees Celsius",
                 name="fetch_current_temperature",
                 id="3",
-                tool_call_id="call_mp680g1ciZRb9eaRoWZUpMWG",
+                tool_call_id="call_bklNDJrFV7sDE1SW9bresmOF",
             ),
             AIMessage(
                 content="The current temperature in Recife is 32 degrees Celsius.",
@@ -133,7 +133,7 @@ def test_AIAssistant_invoke():
                     {
                         "name": "fetch_forecast_temperature",
                         "args": {"location": "Recife", "dt_str": "2024-06-10"},
-                        "id": "call_5Y5P4y5m0VFzh5GE0RNeEkyP",
+                        "id": "call_DLt2ZmvMV9d7X9NzyzkTj1VO",
                         "type": "tool_call",
                     }
                 ],
@@ -142,7 +142,7 @@ def test_AIAssistant_invoke():
                 content="35 degrees Celsius",
                 name="fetch_forecast_temperature",
                 id="7",
-                tool_call_id="call_5Y5P4y5m0VFzh5GE0RNeEkyP",
+                tool_call_id="call_DLt2ZmvMV9d7X9NzyzkTj1VO",
             ),
             AIMessage(
                 content="The forecasted temperature for tomorrow in Recife is 35 degrees Celsius.",
@@ -209,17 +209,11 @@ def test_AIAssistant_with_rag_invoke():
 
     assert response_0["input"] == "I'm at Central Park W & 79st, New York, NY 10024, United States."
     assert response_0["output"] == (
-        "You are right by the American Museum of Natural History, where you can explore "
-        "fascinating exhibits on dinosaurs, space, and human cultures. "
-        "In addition, Central Park offers scenic walking paths, boating on the lake, "
-        "and the iconic Bethesda Terrace. Enjoy your visit!"
+        "Nearby, you can visit the American Museum of Natural History, renowned for its extensive exhibits on mammals, the cosmos, and ancient cultures."
     )
     assert response_1["input"] == "11 W 53rd St, New York, NY 10019, United States."
     assert response_1["output"] == (
-        "You're at the Museum of Modern Art, which features an impressive collection of "
-        "contemporary and modern artworks, including pieces by Van Gogh and Warhol. "
-        "Nearby, you can also visit the iconic Rockefeller Center. "
-        "Enjoy the artistic and cultural experiences!"
+        "You are close to the Museum of Modern Art (MoMA), which features an impressive collection of contemporary and modern art, including works by Van Gogh, Picasso, and Warhol."
     )
 
     expected_messages = messages_to_dict(

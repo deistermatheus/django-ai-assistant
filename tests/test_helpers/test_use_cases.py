@@ -153,8 +153,7 @@ def test_create_message():
 
     assert response["input"] == "Hello, will I have to use my umbrella in Lisbon tomorrow?"
     assert response["output"] == (
-        "The forecast for Lisbon tomorrow is hot with a temperature of 35 degrees Celsius, and it "
-        "doesn't suggest rain. Therefore, you probably won't need to use your umbrella."
+        "The forecast for Lisbon tomorrow indicates a temperature of 35 degrees Celsius but doesn't specify whether it will rain. Generally, such high temperatures might suggest dry conditions, but for accurate rain forecasts, you might want to check a detailed weather service that provides precipitation data."
     )
 
 

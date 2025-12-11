@@ -3,11 +3,6 @@ import inspect
 import re
 from typing import Annotated, Any, ClassVar, Dict, Sequence, Type, TypedDict, cast
 
-from langchain.chains.combine_documents.base import (
-    DEFAULT_DOCUMENT_PROMPT,
-    DEFAULT_DOCUMENT_SEPARATOR,
-)
-from langchain.tools import StructuredTool
 from langchain_core.language_models import BaseChatModel
 from langchain_core.messages import (
     AIMessage,
@@ -31,7 +26,7 @@ from langchain_core.runnables import (
     Runnable,
     RunnableBranch,
 )
-from langchain_core.tools import BaseTool
+from langchain_core.tools import BaseTool, StructuredTool
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, StateGraph, add_messages
 from pydantic import BaseModel
@@ -43,6 +38,10 @@ from django_ai_assistant.exceptions import (
 from django_ai_assistant.helpers.adapters import ToolNode
 from django_ai_assistant.helpers.django_messages import save_django_messages
 from django_ai_assistant.langchain.tools import tool as tool_decorator
+
+
+DEFAULT_DOCUMENT_PROMPT = PromptTemplate.from_template("{page_content}")
+DEFAULT_DOCUMENT_SEPARATOR = "\n\n"
 
 
 class AIAssistant(abc.ABC):  # noqa: F821
