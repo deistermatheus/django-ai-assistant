@@ -40,10 +40,6 @@ from django_ai_assistant.helpers.django_messages import save_django_messages
 from django_ai_assistant.langchain.tools import tool as tool_decorator
 
 
-DEFAULT_DOCUMENT_PROMPT = PromptTemplate.from_template("{page_content}")
-DEFAULT_DOCUMENT_SEPARATOR = "\n\n"
-
-
 class AIAssistant(abc.ABC):  # noqa: F821
     """Base class for AI Assistants. Subclasses must define at least the following attributes:
 
@@ -114,6 +110,11 @@ class AIAssistant(abc.ABC):  # noqa: F821
     """Registry of all AIAssistant subclasses by their id.\n
     Automatically populated by when a subclass is declared.\n
     Use `get_cls_registry` and `get_cls` to access the registry."""
+
+    DEFAULT_DOCUMENT_PROMPT: ClassVar[PromptTemplate] = PromptTemplate.from_template(
+        "{page_content}"
+    )
+    DEFAULT_DOCUMENT_SEPARATOR: ClassVar[str] = "\n\n"
 
     def __init__(self, *, user=None, request=None, view=None, **kwargs: Any):
         """Initialize the AIAssistant instance.\n
@@ -328,7 +329,7 @@ class AIAssistant(abc.ABC):  # noqa: F821
         Returns:
             str: a separator for documents in the prompt.
         """
-        return DEFAULT_DOCUMENT_SEPARATOR
+        return self.DEFAULT_DOCUMENT_SEPARATOR
 
     def get_document_prompt(self) -> PromptTemplate:
         """Get the PromptTemplate template to use when rendering RAG documents in the prompt.
@@ -339,7 +340,7 @@ class AIAssistant(abc.ABC):  # noqa: F821
         Returns:
             PromptTemplate: a prompt template for RAG documents.
         """
-        return DEFAULT_DOCUMENT_PROMPT
+        return self.DEFAULT_DOCUMENT_PROMPT
 
     def get_retriever(self) -> BaseRetriever:
         """Get the RAG retriever to use for fetching documents.\n
